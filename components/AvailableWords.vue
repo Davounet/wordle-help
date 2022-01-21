@@ -25,9 +25,9 @@ export default {
   computed: {
     filtered() {
       return words.filter(word => {
-        const green = Array.from(this.green).reduce((r, l, i) => r && (l === '_' || word[i] === l), true)
-        const yellow = Array.from(this.yellow).reduce((r, l) => r && word.includes(l), true)
-        const gray = Array.from(this.gray).reduce((r, l) => r && !word.includes(l), true)
+        const green = Array.from(clean(this.green)).reduce((r, l, i) => r && (l === '_' || word[i] === l), true)
+        const yellow = Array.from(clean(this.yellow)).reduce((r, l) => r && word.includes(l), true)
+        const gray = Array.from(clean(this.gray)).reduce((r, l) => r && !word.includes(l), true)
         return green && yellow && gray
       })
     },
@@ -35,5 +35,9 @@ export default {
       return this.filtered.length
     }
   }
+}
+
+function clean(input) {
+  return input.trim().toLowerCase()
 }
 </script>
