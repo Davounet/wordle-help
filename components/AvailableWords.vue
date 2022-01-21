@@ -1,8 +1,12 @@
 <template>
   <div>
-    <p class="px-2 mb-3">
-      There are <strong>{{ size }}</strong> words available :
-    </p>
+    <div class="px-2 mb-3">
+      <p v-if="size > 1">
+        There are <strong>{{ size }}</strong> words available :
+      </p>
+      <p v-if="size === 1">There is only <strong>1</strong> match :</p>
+      <p v-if="size === 0">There is no match available</p>
+    </div>
     <ul class="flex items-start justify-around flex-wrap">
       <li v-for="word in filtered.slice(0, 30)" :key="word" class="text-lg uppercase leading-5 font-bold p-2 font-mono">
         {{ word }}

@@ -11,7 +11,6 @@
             v-model="letters[i]"
             type="text"
             class="form-input font-mono text-3xl text-center"
-            placeholder="_"
             maxlength="1"
           />
         </div>
