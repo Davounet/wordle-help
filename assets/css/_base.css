@@ -1,0 +1,8 @@
+html,
+body {
+  @apply p-0 m-0 font-sans text-base subpixel-antialiased leading-tight appearance-none;
+}
+
+h2 {
+  @apply text-xl font-black text-gray-400 uppercase;
+}

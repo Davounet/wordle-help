@@ -1,0 +1,28 @@
+.form-input,
+.form-textarea,
+.form-select {
+  @apply block w-full placeholder-gray-300 border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 sm:text-sm;
+
+  &:disabled:not(.form-input--bypass) {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  &__button {
+    @apply relative inline-flex items-center px-4 py-2 -ml-px space-x-2 text-sm font-medium text-gray-700 border border-gray-300 rounded-l-none bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500;
+  }
+}
+
+.form-checkbox,
+.form-radio {
+  @apply w-5 h-5 border-gray-300 cursor-pointer text-primary-700 focus:outline-none focus:ring-1 focus:ring-primary-500;
+}
+.form-checkbox {
+  @apply rounded;
+}
+.form-radio {
+  @apply rounded-full;
+}
+
+.form-button {
+  @apply inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 border border-gray-300 rounded-md bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500;
+}
