@@ -1,0 +1,69 @@
+<template>
+  <div>
+    <fieldset class="mt-2">
+      <legend class="sr-only">Choose a language option</legend>
+      <div class="grid grid-cols-3 gap-3 sm:grid-cols-5">
+        <label
+          v-for="item in langs"
+          :key="item.value"
+          class="option"
+          :class="{ 'option--checked': item.value === lang }"
+        >
+          <input
+            v-model="lang"
+            type="radio"
+            name="lang"
+            :value="item.value"
+            class="sr-only"
+            :aria-labelledby="`lang-${item.value}-label`"
+          />
+          <p :id="`lang-${item.value}-label`">{{ item.label }}</p>
+        </label>
+      </div>
+    </fieldset>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'LangSelector',
+  props: {
+    value: { type: String, required: true }
+  },
+  data() {
+    return {
+      langs: [
+        { value: 'en', label: 'English' },
+        { value: 'fr', label: 'Français' }
+      ],
+      lang: 'fr'
+    }
+  },
+  watch: {
+    value: {
+      immediate: true,
+      handler(value) {
+        this.lang = value
+      }
+    },
+    lang: {
+      handler(lang) {
+        this.$emit('input', lang)
+      }
+    }
+  }
+}
+</script>
+
+<style lang="postcss">
+.option {
+  @apply border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium cursor-pointer focus:outline-none bg-white border-gray-300 hover:bg-gray-50;
+}
+.option:active,
+.option:focus {
+  @apply ring-2 ring-offset-2 ring-primary-500;
+}
+.option--checked {
+  @apply bg-primary-600 border-transparent text-white hover:bg-primary-700;
+}
+</style>

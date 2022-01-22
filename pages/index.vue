@@ -1,7 +1,10 @@
 <template>
   <div>
     <h1 class="uppercase text-3xl text-center mb-12 font-bold">Wordle helper</h1>
+
     <div class="px-2 w-full space-y-4 mb-12">
+      <lang-selector v-model="lang" />
+
       <div>
         <label class="block text-sm font-medium text-gray-700">Green letters</label>
         <div class="grid grid-cols-5 gap-4">
@@ -27,7 +30,7 @@
       </div>
     </div>
     <div>
-      <available-words :green="green" :yellow="yellow" :gray="gray" />
+      <available-words :lang="lang" :green="green" :yellow="yellow" :gray="gray" />
     </div>
   </div>
 </template>
@@ -37,6 +40,7 @@ export default {
   name: 'IndexPage',
   data() {
     return {
+      lang: 'en',
       letters: ['', '', '', '', ''],
       yellow: '',
       gray: ''
