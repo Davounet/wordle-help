@@ -21,6 +21,10 @@
         </label>
       </div>
     </fieldset>
+    <p class="text-xs mt-1">
+      The game for this language is available
+      <a :href="current.gameUrl" target="_blank" rel="noopener, noreferrer" class="font-bold hover:underline">here</a>.
+    </p>
   </div>
 </template>
 
@@ -33,10 +37,15 @@ export default {
   data() {
     return {
       langs: [
-        { value: 'en', label: 'English' },
-        { value: 'fr', label: 'Français' }
+        { value: 'en', label: 'English', gameUrl: 'https://www.powerlanguage.co.uk/wordle/' },
+        { value: 'fr', label: 'Français', gameUrl: 'https://wordle.louan.me/' }
       ],
       lang: 'fr'
+    }
+  },
+  computed: {
+    current() {
+      return this.langs.find(l => l.value === this.value)
     }
   },
   watch: {
