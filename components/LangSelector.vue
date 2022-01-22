@@ -38,7 +38,8 @@ export default {
     return {
       langs: [
         { value: 'en', label: 'English', gameUrl: 'https://www.powerlanguage.co.uk/wordle/' },
-        { value: 'fr', label: 'Français', gameUrl: 'https://wordle.louan.me/' }
+        { value: 'fr', label: 'Français', gameUrl: 'https://wordle.louan.me/' },
+        { value: 'prime', label: 'Primes', gameUrl: 'https://converged.yt/primel/' }
       ],
       lang: 'fr'
     }
